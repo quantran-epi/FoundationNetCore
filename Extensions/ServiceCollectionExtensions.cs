@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using FoundationNetCore.Cms.Settings;
 using FoundationNetCore.Features.Header;
+using FoundationNetCore.Features.Preview;
 
 namespace FoundationNetCore.Extensions
 {
@@ -52,6 +53,7 @@ namespace FoundationNetCore.Extensions
         private static void AddDependencyInjection(this IServiceCollection services)
         {
             services.AddSingleton<IHeaderViewModelFactory, HeaderViewModelFactory>();
+            services.AddSingleton<PreviewControllerHelper, PreviewControllerHelper>();
         }
     }
 }

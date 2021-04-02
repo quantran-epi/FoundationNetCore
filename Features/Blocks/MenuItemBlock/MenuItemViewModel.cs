@@ -14,6 +14,6 @@ namespace FoundationNetCore.Features.Blocks.MenuItemBlock
         public XhtmlString TeaserText { get; set; }
         public string ButtonText { get; set; }
         public string ButtonLink { get; set; }
-        //public List<GroupLinkCollection> ChildLinks { get; set; }
+        public List<GroupLinkCollection> ChildLinks { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using EPiServer.Cms.Shell.UI.Models.Internal;
 using EPiServer.Core;
 using EPiServer.SpecializedProperties;
+using FoundationNetCore.Features.Blocks.MenuItemBlock;
 using FoundationNetCore.Features.Home;
 using FoundationNetCore.Features.Settings;
 using System;
@@ -21,7 +22,7 @@ namespace FoundationNetCore.Features.Header
         public Guid CurrentContentGuid { get; set; }
         public LinkItemCollection UserLinks { get; set; }
         public string Name { get; set; }
-        //public List<MenuItemViewModel> MenuItems { get; set; }
+        public List<MenuItemViewModel> MenuItems { get; set; }
         public bool IsReadonlyMode { get; set; }
         public bool LargeHeaderMenu { get; set; }
         public bool ShowCommerceControls { get; set; }
@@ -32,5 +33,6 @@ namespace FoundationNetCore.Features.Header
         public LinkItemCollection RestrictedMenu { get; set; }
         public bool HasOrganization { get; set; }
         public bool IsBookmarked { get; set; }
+        public bool IsInEditMode { get; set; }
     }
 }

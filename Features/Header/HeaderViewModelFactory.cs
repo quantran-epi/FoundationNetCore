@@ -152,11 +152,11 @@ namespace FoundationNetCore.Features.Header
                     {
                         Name = _.Name,
                         ButtonText = _.ButtonText,
-                        TeaserText = _.TeaserText,
+                        //TeaserText = _.TeaserText,
                         Uri = _.Link == null ? string.Empty : _urlResolver.GetUrl(new UrlBuilder(_.Link.ToString()), new UrlResolverArguments() { ContextMode = ContextMode.Default }),
                         ImageUrl = !ContentReference.IsNullOrEmpty(_.MenuImage) ? _urlResolver.GetUrl(_.MenuImage) : "",
                         ButtonLink = _.ButtonLink?.Host + _.ButtonLink?.PathAndQuery,
-                        //ChildLinks = _.ChildItems?.ToList() ?? new List<GroupLinkCollection>()
+                        ChildLinks = _.ChildItems?.ToList() ?? new List<GroupLinkCollection>()
                     };
                 }
                 else
@@ -188,7 +188,8 @@ namespace FoundationNetCore.Features.Header
                 CurrentContentGuid = currentContent?.ContentGuid ?? Guid.Empty,
                 UserLinks = new LinkItemCollection(),
                 IsReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly,
-                //MenuItems = menuItems ?? new List<MenuItemViewModel>(),
+                MenuItems = menuItems ?? new List<MenuItemViewModel>(),
+                IsInEditMode = _contextModeResolver.CurrentMode.EditOrPreview()
             };
         }
     }

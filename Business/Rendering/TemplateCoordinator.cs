@@ -3,6 +3,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using FoundationNetCore.Features.Shared;
 
 namespace FoundationNetCore.Business.Rendering
 {
@@ -36,7 +37,7 @@ namespace FoundationNetCore.Business.Rendering
         /// </remarks>
         public void Register(TemplateModelCollection viewTemplateModelRegistrator)
         {
-
+            
         }
     }
 }

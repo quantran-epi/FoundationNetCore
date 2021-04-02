@@ -1,7 +1,7 @@
 ﻿@using EPiServer.Web
 @using EPiServer.Web.Routing
 @using FoundationNetCore.Features.Header
-@*@using Foundation.Features.Blocks.MenuItemBlock*@
+@using FoundationNetCore.Features.Blocks.MenuItemBlock
 
 @model HeaderViewModel
 
@@ -14,13 +14,13 @@
     <nav class="container">
         <div class="row no-gutters">
             <div class="navigation" style="height: @(navigationHeight)px">
-                @*<div class="navigation__left" @Html.EditAttributes(x => x.LayoutSettings.MainMenu)>
-                    @Html.Partial("_Menu", Model.MenuItems ?? new List<MenuItemViewModel>())
-                </div>*@
-                @*<div class="navigation__logo @(Model.LayoutSettings.HeaderMenuStyle == "LeftLogo" ? "flex-start" : "flex-center")"
+                <div class="navigation__left" @Html.EditAttributes(x => x.LayoutSettings.MainMenu)>
+                    @(await Html.PartialAsync("_Menu", Model.MenuItems ?? new List<MenuItemViewModel>()))
+                </div>
+                <div class="navigation__logo @(Model.LayoutSettings.HeaderMenuStyle == "LeftLogo" ? "flex-start" : "flex-center")"
                      style="@(Model.LayoutSettings.HeaderMenuStyle == "LeftLogo" ? "order: -1; width: 75%;" : "")">
                     <a href="/">
-                        @if (PageEditing.PageIsInEditMode)
+                        @if (Model.IsInEditMode)
                         {
                             <div @Html.EditAttributes(x => x.LayoutSettings.SiteLogo)>
                                 <img data-src="@Url.ContentUrl(Model.LayoutSettings.SiteLogo)?format=webp"
@@ -35,7 +35,7 @@
                                  class="img-fluid lazyload" @Html.EditAttributes(x => x.LayoutSettings.SiteLogo) />
                         }
                     </a>
-                </div>*@
+                </div>
                 <ul class="navigation__right">
                     <li>
                         <div class="icon-menu" id="js-searchbutton">
