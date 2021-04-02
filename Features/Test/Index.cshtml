@@ -1,0 +1,8 @@
+﻿@using FoundationNetCore.Features.Test
+@using EPiServer.Web.Mvc.Html
+
+@model ContentViewModel<TestPage>
+
+<div>
+    @Html.PropertyFor(x => x.CurrentContent.TopContentArea)
+</div>
